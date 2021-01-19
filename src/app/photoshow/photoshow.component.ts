@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UnsplashService } from '../unsplash.service';
 
 @Component({
   selector: 'app-photoshow',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotoshowComponent implements OnInit {
 
-  constructor() { }
+  constructor(private unsplashService: UnsplashService) {
+      unsplashService.getPhoto().subscribe((response) => {
+        console.log(response.urls.regular)
+      });
+   }
 
   ngOnInit(): void {
   }
