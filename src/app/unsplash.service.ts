@@ -3,6 +3,13 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../environments/environment'
 
+interface UnsplashData {
+  urls: {
+    regular: string
+  }
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +18,7 @@ export class UnsplashService {
 
 
   getPhoto() {
-    return this.http.get('https://api.unsplash.com/photos/random', {
+    return this.http.get<UnsplashData>('https://api.unsplash.com/photos/random', {
       headers: {
         Authorization: `Client-ID ${environment.API}`,
       }
