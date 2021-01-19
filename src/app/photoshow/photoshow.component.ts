@@ -19,7 +19,7 @@ export class PhotoshowComponent {
 
   fetchPhoto() {
     this.unsplashService.getPhoto().subscribe((response) => {
-        this.photoUrl = response.urls.regular;
+        this.photoUrl = response;
       });
   }
 

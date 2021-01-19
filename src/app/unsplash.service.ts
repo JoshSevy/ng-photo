@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { pluck } from 'rxjs/operators'
 
 import { environment } from '../environments/environment'
 
@@ -22,7 +23,9 @@ export class UnsplashService {
       headers: {
         Authorization: `Client-ID ${environment.API}`,
       }
-    })
+    }).pipe(
+      pluck('urls', 'regular')
+    )
   }
 
 }

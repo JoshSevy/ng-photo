@@ -1,4 +1,4 @@
 <div>
   <button (click)="onClick()">New Random Photo</button>
 </div>
-<img [src]="photoUrl" />
+<img *ngIf="photoUrl" [src]="photoUrl" />
