@@ -7,10 +7,11 @@ import { UnsplashService } from '../unsplash.service';
   styleUrls: ['./photoshow.component.css']
 })
 export class PhotoshowComponent implements OnInit {
+  photoUrl: string;
 
   constructor(private unsplashService: UnsplashService) {
       unsplashService.getPhoto().subscribe((response) => {
-        console.log(response.urls.regular)
+        this.photoUrl = response.urls.regular;
       });
    }
 
